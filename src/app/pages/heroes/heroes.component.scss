@@ -1,0 +1,18 @@
+th {
+    cursor: pointer;
+}
+
+th:hover {
+    color: #80bdff;
+}
+
+th {
+    transition: linear 200ms;
+}
+
+.form-control:hover {
+    transition: linear 200ms;
+}
+.form-control:hover {
+    border-color: #80bdff;
+}

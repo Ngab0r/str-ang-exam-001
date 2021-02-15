@@ -1,0 +1,25 @@
+<div class="form-group row mt-5 mb-3">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Search: </label>
+    <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+            (keyup)="onChangeNameForFilter($event)">
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr></tr>
+        <th (click)="selectColumnForSort('id')">ID</th>
+        <th (click)="selectColumnForSort('name')">Name</th>
+        <th (click)="selectColumnForSort('superPower')">SuperPower</th>
+        <th (click)="selectColumnForSort('address')">Address</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hero of heroList | filter:nameForFilter | sorter:sorterColName:isAscending">
+            <td>{{ hero.id }}</td>
+            <td>{{ hero.name }}</td>
+            <td>{{ hero.superPower }}</td>
+            <td>{{ hero.address }}</td>
+        </tr>
+    </tbody>
+</table>

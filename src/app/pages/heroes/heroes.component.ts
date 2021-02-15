@@ -25,7 +25,7 @@ export class HeroesComponent implements OnInit {
   }
 
   selectColumnForSort(col: string): void {
-    this.sorterColName === col ? this.isAscending = !this.isAscending : true;
+    this.sorterColName === col ? this.isAscending = !this.isAscending : this.isAscending = true;
     this.sorterColName = col;
   }
 

@@ -1,7 +1,7 @@
 <div class="form-group row mt-5 mb-3">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Search: </label>
+    <label for="inputSearch" class="col-sm-2 col-form-label">Search: </label>
     <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+        <input type="text" class="form-control" id="inputSearch" placeholder="name"
             (keyup)="onChangeNameForFilter($event)">
     </div>
 </div>
@@ -9,10 +9,22 @@
 <table class="table table-striped">
     <thead>
         <tr></tr>
-        <th (click)="selectColumnForSort('id')">ID</th>
-        <th (click)="selectColumnForSort('name')">Name</th>
-        <th (click)="selectColumnForSort('superPower')">SuperPower</th>
-        <th (click)="selectColumnForSort('address')">Address</th>
+        <th (click)="selectColumnForSort('id')">ID
+            <i *ngIf="isAscending && sorterColName==='id'" class="fa fa-angle-down"></i>
+            <i *ngIf="!isAscending && sorterColName==='id'" class="fa fa-angle-up"></i>
+        </th>
+        <th (click)="selectColumnForSort('name')">Name
+            <i *ngIf="isAscending && sorterColName==='name'" class="fa fa-angle-down"></i>
+            <i *ngIf="!isAscending && sorterColName==='name'" class="fa fa-angle-up"></i>
+        </th>
+        <th (click)="selectColumnForSort('superPower')">SuperPower
+            <i *ngIf="isAscending && sorterColName==='superPower'" class="fa fa-angle-down"></i>
+            <i *ngIf="!isAscending && sorterColName==='superPower'" class="fa fa-angle-up"></i>
+        </th>
+        <th (click)="selectColumnForSort('address')">Address
+            <i *ngIf="isAscending && sorterColName==='address'" class="fa fa-angle-down"></i>
+            <i *ngIf="!isAscending && sorterColName==='address'" class="fa fa-angle-up"></i>
+        </th>
     </thead>
     <tbody>
         <tr *ngFor="let hero of heroList | filter:nameForFilter | sorter:sorterColName:isAscending">
